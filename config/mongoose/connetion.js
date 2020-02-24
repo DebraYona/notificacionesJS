@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-const url = 'mongodb://localhost/viajes'
+const url = 'mongodb://localhost/localization_now'
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology :true

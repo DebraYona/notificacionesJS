@@ -17,11 +17,14 @@ http.listen(5000, function() {
   app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html')
   })
-  io.on('connection', (socket) =>{
+  io.on('connection', function(socket){
     console.log('a user connected', socket.id);
-    socket.on('disconnect', ()=>{
-      console.log('user disconnected');
-    });
+
+    socket.on('notificacion:location', (data) =>{
+      console.log(data);
+      
+    })
+    
   });
 
   app.post('/quotes', (req, res) => {

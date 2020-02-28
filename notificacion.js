@@ -10,7 +10,12 @@ btn.addEventListener('click', function(){
     socket.emit('notificacion:location',{
         user :user.value, 
         quote :quote.value
+
     })
    
     
 })
+socket.emit('UpdateOnDatabase');
+
+
+//https://stackoverflow.com/questions/55848025/refresh-page-automatically-when-mongodb-collection-changes

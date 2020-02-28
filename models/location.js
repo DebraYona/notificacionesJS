@@ -29,5 +29,10 @@ const locationShema = new Schema({
 });
 
  let Location = model('location', locationShema);
+ Location.watch()
+ .on('change', data =>console.log(new Date(), data))
+
+ console.log(  )
+ 
 
 module.exports = Location;

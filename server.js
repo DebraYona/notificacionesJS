@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser= require('body-parser');
-require('./config/mongoose/connetion')
+const connected= require('./config/mongoose/connetion')
+location = require('./models/location')
 const app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
@@ -22,11 +23,13 @@ http.listen(5000, function() {
 
     socket.on('notificacion:location', (data) =>{
       console.log(data);
-      
+
+       /*  let locationNow = new( data);
+        locationNow.save();       */
     })
     
   });
 
   app.post('/quotes', (req, res) => {
     console.log(req.body)
-})
+    })

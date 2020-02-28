@@ -1,4 +1,5 @@
 //var socket = io();
+
 const socket= io(); 
 
 let user =document.getElementById('user');

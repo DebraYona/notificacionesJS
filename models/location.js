@@ -1,6 +1,6 @@
 const { Schema, model} = require ('mongoose');
 
-const pointSchema = new mongoose.Schema({
+const pointSchema = new Schema({
     type: {
       type: String,
       enum: ['Point'],
@@ -15,9 +15,9 @@ const pointSchema = new mongoose.Schema({
   //location: { type: "Point", coordinates: [ -73.97, 40.77 ] },
 
 const locationShema = new Schema({
-    idDriver: Integer,
-    idCompany: Integer,
-    idCar: Integer,
+    idDriver: Number,
+    idCompany: Number,
+    idCar: Number,
     created: Date,
     updated: Date,
     location: {
@@ -28,11 +28,25 @@ const locationShema = new Schema({
 
 });
 
- let Location = model('location', locationShema);
- Location.watch()
- .on('change', data =>console.log(new Date(), data))
+/* const schemas = [];
+mongoose.modelNames().forEach(function(modelName){
+    schemas.push(model(modelName).schema.obj);
+})
 
- console.log(  )
+console.log(schemas); */
+
+ let Location = model('location', locationShema);
+
+/*  const collection = db.collection('location');
+ const changeStream = collection.watch();
+ changeStream.on('change', next => {
+  console.log("debra ");
+  
+ }); */
+ //Location.watch()
+ //.on('change', data =>console.log(new Date(), data))
+
+// console.log(  )
  
 
 module.exports = Location;
